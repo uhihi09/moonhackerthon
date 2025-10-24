@@ -1,0 +1,42 @@
+# ===================================
+# Docker 빌드 시 제외할 파일
+# ===================================
+
+# Gradle
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# macOS
+.DS_Store
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Logs
+*.log
+logs/
+
+# Test
+**/test/
+
+# 민감 정보
+*-secret.properties
+*.env
+.env
+
+# Documentation
+README.md
+docs/
+
+# CI/CD
+.github/
