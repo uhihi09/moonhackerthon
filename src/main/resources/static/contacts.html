@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - 긴급 연락처</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="nav-brand">
+            <span>🆘</span> SafeGuard
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/dashboard.html">홈</a></li>
+            <li><a href="/contacts.html" class="active">긴급 연락처</a></li>
+            <li><a href="/history.html">신고 내역</a></li>
+            <li><a href="/location.html">이동 경로</a></li>
+            <li><a href="/profile.html">마이페이지</a></li>
+            <li><a href="#" id="logoutBtn">로그아웃</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="dashboard-header">
+        <h1>📞 긴급 연락처 관리</h1>
+        <p>위급 상황 발생 시 알림을 받을 연락처를 등록하세요</p>
+    </div>
+
+    <!-- 연락처 추가 폼 -->
+    <div class="card">
+        <h3>➕ 새 연락처 추가</h3>
+        <form id="addContactForm">
+            <div class="form-group">
+                <label for="contactName">이름</label>
+                <input type="text" id="contactName" placeholder="예: 홍길동" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contactPhone">전화번호</label>
+                <input type="tel" id="contactPhone" placeholder="010-1234-5678" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contactRelationship">관계</label>
+                <input type="text" id="contactRelationship" placeholder="예: 가족, 친구" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">추가하기</button>
+        </form>
+    </div>
+
+    <!-- 연락처 목록 -->
+    <div class="card">
+        <h3>📋 등록된 긴급 연락처</h3>
+        <div id="contactsList"></div>
+    </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/contacts.js"></script>
+</body>
+</html>

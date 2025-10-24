@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - 마이페이지</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="nav-brand">
+            <span>🆘</span> SafeGuard
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/dashboard.html">홈</a></li>
+            <li><a href="/contacts.html">긴급 연락처</a></li>
+            <li><a href="/history.html">신고 내역</a></li>
+            <li><a href="/location.html">이동 경로</a></li>
+            <li><a href="/profile.html" class="active">마이페이지</a></li>
+            <li><a href="#" id="logoutBtn">로그아웃</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="dashboard-header">
+        <h1>👤 마이페이지</h1>
+        <p>내 정보를 관리합니다</p>
+    </div>
+
+    <!-- 내 정보 -->
+    <div class="card">
+        <h3>📋 내 정보</h3>
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="profileName">이름</label>
+                <input type="text" id="profileName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profilePhone">전화번호</label>
+                <input type="tel" id="profilePhone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profileUsername">아이디</label>
+                <input type="text" id="profileUsername" disabled>
+            </div>
+
+            <button type="submit" class="btn btn-primary">정보 수정</button>
+        </form>
+    </div>
+
+    <!-- 통계 -->
+    <div class="card">
+        <h3>📊 사용 통계</h3>
+        <div id="userStats">
+            <p>총 긴급 신고 횟수: <strong id="totalReports">0</strong>회</p>
+            <p>등록된 긴급 연락처: <strong id="totalContacts">0</strong>명</p>
+            <p>위치 기록: <strong id="totalLocations">0</strong>개</p>
+        </div>
+    </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script>
+    checkAuth();
+
+    // 로그아웃
+    document.getElementById('logoutBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        if (showConfirm('로그아웃 하시겠습니까?')) {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('username');
+            window.location.href = '/index.html';
+        }
+    });
+
+    // 사용자 정보 로드
+    async function loadProfile() {
+        try {
+            const user = await apiCall('/users/me');
+            document.getElementById('profileName').value = user.name || '';
+            document.getElementById('profilePhone').value = user.phone || '';
+            document.getElementById('profileUsername').value = user.username || '';
+        } catch (error) {
+            showError('사용자 정보를 불러오는데 실패했습니다.');
+        }
+    }
+
+    // 정보 수정
+    document.getElementById('profileForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('profileName').value;
+        const phone = document.getElementById('profilePhone').value;
+
+        try {
+            await apiCall('/users/me', 'PUT', { name, phone });
+            showSuccess('정보가 수정되었습니다!');
+        } catch (error) {
+            showError('정보 수정에 실패했습니다.');
+        }
+    });
+
+    // 통계 로드
+    async function loadStats() {
+        try {
+            const [reports, contacts, locations] = await Promise.all([
+                apiCall('/emergency-reports/my'),
+                apiCall('/emergency-contacts'),
+                apiCall('/locations/my')
+            ]);
+
+            document.getElementById('totalReports').textContent = reports.length;
+            document.getElementById('totalContacts').textContent = contacts.length;
+            document.getElementById('totalLocations').textContent = locations.length;
+        } catch (error) {
+            console.error('통계 로드 실패:', error);
+        }
+    }
+
+    // 페이지 로드 시 실행
+    loadProfile();
+    loadStats();
+</script>
+</body>
+</html>

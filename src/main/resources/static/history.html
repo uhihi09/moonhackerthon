@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - 신고 내역</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="nav-brand">
+            <span>🆘</span> SafeGuard
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/dashboard.html">홈</a></li>
+            <li><a href="/contacts.html">긴급 연락처</a></li>
+            <li><a href="/history.html" class="active">신고 내역</a></li>
+            <li><a href="/location.html">이동 경로</a></li>
+            <li><a href="/profile.html">마이페이지</a></li>
+            <li><a href="#" id="logoutBtn">로그아웃</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="dashboard-header">
+        <h1>📋 위급 버튼 기록</h1>
+        <p>긴급 구조 요청 내역을 확인할 수 있습니다</p>
+    </div>
+
+    <!-- 필터 -->
+    <div class="card">
+        <h3>🔍 필터</h3>
+        <div class="flex gap-15">
+            <button class="btn btn-primary" data-filter="ALL">전체</button>
+            <button class="btn btn-secondary" data-filter="PENDING">대기중</button>
+            <button class="btn btn-secondary" data-filter="IN_PROGRESS">처리중</button>
+            <button class="btn btn-secondary" data-filter="RESOLVED">완료</button>
+        </div>
+    </div>
+
+    <!-- 신고 목록 -->
+    <div class="card">
+        <h3>📋 신고 목록</h3>
+        <div id="reportsList"></div>
+    </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/history.js"></script>
+</body>
+</html>
