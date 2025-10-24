@@ -1,0 +1,74 @@
+<!DOCTYPE html name=route.html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>핑! - 최근 이동경로</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <span class="signal">📶</span>
+                <span class="battery">100</span>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <button class="back-btn" onclick="history.back()">‹</button>
+            <h1 class="page-title">최근 1일 간 이동경로</h1>
+            <button class="settings-btn">⚙️</button>
+        </div>
+    </header>
+
+    <!-- 지도 -->
+    <div class="route-map-container">
+        <div id="routeMap" class="route-map"></div>
+        <div class="location-badge danger">최신 위치</div>
+    </div>
+
+    <!-- 좌표 리스트 -->
+    <div class="coordinate-list">
+        <div class="list-header">
+            <span>좌표값</span>
+            <span>시각</span>
+        </div>
+        <div class="coordinate-item">
+            <span class="index">1</span>
+            <span class="coords">35.0497094, 127.9929478</span>
+            <button class="copy-btn">📋</button>
+            <span class="time">13:03</span>
+        </div>
+        <div class="coordinate-item">
+            <span class="index">2</span>
+            <span class="coords">37.0324096, 127.9953599</span>
+            <button class="copy-btn">📋</button>
+            <span class="time">13:18</span>
+        </div>
+        <div class="coordinate-item">
+            <span class="index">3</span>
+            <span class="coords">39.0421594, 127.3525478</span>
+            <button class="copy-btn">📋</button>
+            <span class="time">13:33</span>
+        </div>
+        <div class="coordinate-item">
+            <span class="index">4</span>
+            <span class="coords">38.0532551, 127.5325432</span>
+            <button class="copy-btn">📋</button>
+            <span class="time">13:48</span>
+        </div>
+        <div class="coordinate-item">
+            <span class="index">5</span>
+            <span class="coords">37.4235553, 127.9924478</span>
+            <button class="copy-btn">📋</button>
+            <span class="time">14:03</span>
+        </div>
+    </div>
+</div>
+
+<script src="js/route.js"></script>
+</body>
+</html>

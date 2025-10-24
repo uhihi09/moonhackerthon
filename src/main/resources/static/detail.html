@@ -1,0 +1,72 @@
+<!DOCTYPE html name=detail.html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>핑! - 위급버튼 기록 상세</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <span class="signal">📶</span>
+                <span class="battery">100</span>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <button class="back-btn" onclick="history.back()">‹</button>
+            <h1 class="page-title">위급버튼 기록 상세</h1>
+            <button class="settings-btn">⚙️</button>
+        </div>
+    </header>
+
+    <!-- 지도 -->
+    <div class="detail-map-container">
+        <div id="detailMap" class="detail-map"></div>
+        <div class="location-badge danger">버튼 사용 위치</div>
+    </div>
+
+    <!-- 상세 정보 -->
+    <div class="detail-info">
+        <div class="info-row">
+            <span class="label">시각</span>
+            <span class="value">2025. 10. 24.(금) 13:31:21</span>
+        </div>
+        <div class="info-row">
+            <span class="label">위치</span>
+            <div class="location-value">
+                <span>대한민국 경상남도 사천시 광포길</span>
+                <span class="coords-small">(35.0497094, 127.9929478)</span>
+                <button class="copy-btn-small">📋 복사</button>
+            </div>
+        </div>
+        <div class="info-row ai-analysis">
+            <span class="label">AI 상황 요약</span>
+            <p class="ai-text">'살려주세요'라는 음성이 인식된 것으로 보아 남치, 협박 등의 위험에 처하신 것으로 보입니다. 신속한 경찰 신고가 필요합니다.</p>
+        </div>
+        <div class="info-row">
+            <span class="label">예상 위험도</span>
+            <span class="danger-level high">상</span>
+        </div>
+    </div>
+
+    <!-- 신고 버튼 -->
+    <div class="action-buttons">
+        <button class="police-btn-large">
+            <span class="btn-icon">112</span>
+            <span>경찰 신고하기</span>
+        </button>
+        <button class="fire-btn-large">
+            <span class="btn-icon">119</span>
+            <span>소방/구급 신고하기</span>
+        </button>
+    </div>
+</div>
+
+<script src="js/detail.js"></script>
+</body>
+</html>

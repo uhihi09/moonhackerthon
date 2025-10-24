@@ -1,0 +1,415 @@
+/* css/style.css url=css/style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+}
+
+/* 헤더 */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+.status-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #FF9800;
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.settings-btn, .back-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* 지도 섹션 */
+.map-section {
+    margin: 16px;
+}
+
+.map-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.map {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 50%, #81C784 100%);
+}
+
+.location-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.location-badge.danger {
+    background-color: rgba(211, 47, 47, 0.9);
+}
+
+.map-info {
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 13px;
+}
+
+/* 최근 이동경로 버튼 */
+.route-button {
+    margin: 16px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.route-button:hover {
+    background-color: #f5f5f5;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #999;
+}
+
+/* 위급버튼 기록 */
+.emergency-log {
+    margin: 16px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.log-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background-color: #fff9e6;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.warning-icon {
+    font-size: 32px;
+}
+
+.log-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log-date {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.log-detail {
+    color: #999;
+    font-size: 14px;
+}
+
+/* 긴급신고 */
+.emergency-call {
+    margin: 16px;
+}
+
+.call-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.police-btn, .fire-btn {
+    flex: 1;
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.police-btn {
+    border-color: #1976D2;
+    color: #1976D2;
+    background-color: white;
+}
+
+.fire-btn {
+    border-color: #D32F2F;
+    color: #D32F2F;
+    background-color: white;
+}
+
+.police-btn:hover, .fire-btn:hover {
+    transform: scale(1.02);
+}
+
+.btn-number {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.btn-label {
+    font-size: 13px;
+}
+
+/* 푸터 */
+.footer {
+    text-align: center;
+    padding: 24px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* 이동경로 페이지 */
+.route-map-container {
+    position: relative;
+    margin: 16px;
+}
+
+.route-map {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 50%, #81C784 100%);
+}
+
+.coordinate-list {
+    margin: 16px;
+}
+
+.list-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 12px 16px;
+    background-color: #f5f5f5;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+}
+
+.coordinate-item {
+    display: grid;
+    grid-template-columns: 30px 2fr 40px 1fr;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 8px;
+}
+
+.index {
+    color: #999;
+}
+
+.coords {
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.time {
+    text-align: right;
+    color: #666;
+}
+
+/* 상세 페이지 */
+.detail-map-container {
+    position: relative;
+    margin: 16px;
+}
+
+.detail-map {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 50%, #81C784 100%);
+}
+
+.detail-info {
+    margin: 16px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.info-row {
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    width: 100px;
+    font-weight: 600;
+    color: #666;
+}
+
+.value {
+    flex: 1;
+}
+
+.location-value {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.coords-small {
+    font-size: 12px;
+    color: #999;
+}
+
+.copy-btn-small {
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 4px 12px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.ai-analysis {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-text {
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff3e0;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.danger-level {
+    padding: 4px 16px;
+    border-radius: 16px;
+    font-weight: bold;
+}
+
+.danger-level.high {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+/* 액션 버튼 */
+.action-buttons {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.police-btn-large, .fire-btn-large {
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.police-btn-large {
+    background-color: #1976D2;
+}
+
+.fire-btn-large {
+    background-color: #D32F2F;
+}
+
+.police-btn-large:hover, .fire-btn-large:hover {
+    transform: scale(1.02);
+}
+
+.btn-icon {
+    font-size: 24px;
+    font-weight: bold;
+}

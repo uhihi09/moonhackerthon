@@ -1,0 +1,82 @@
+<!DOCTYPE html name=index.html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>핑! - 메인</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <span class="signal">📶</span>
+                <span class="battery">100</span>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <h1 class="logo">핑!</h1>
+            <button class="settings-btn">⚙️</button>
+        </div>
+    </header>
+
+    <!-- 지도 섹션 -->
+    <section class="map-section">
+        <div class="map-container">
+            <div id="map" class="map"></div>
+            <div class="location-badge">배중학 님</div>
+        </div>
+        <div class="map-info">
+            <span class="location-text">경상남도 사천시 광포길</span>
+            <span class="timestamp">10.24. 14:52 기준</span>
+        </div>
+    </section>
+
+    <!-- 최근 이동경로 버튼 -->
+    <div class="route-button" onclick="location.href='route.html'">
+        <div class="btn-content">
+            <span class="icon">🔄</span>
+            <span class="text">최근 이동경로 확인하기</span>
+        </div>
+        <span class="arrow">›</span>
+    </div>
+
+    <!-- 위급버튼 기록 -->
+    <section class="emergency-log">
+        <h2 class="section-title">위급버튼 기록</h2>
+        <div class="log-item" onclick="location.href='detail.html'">
+            <div class="warning-icon">⚠️</div>
+            <div class="log-content">
+                <span class="log-date">10월 24일(금) 오후 1:31</span>
+                <span class="log-detail">자세히보기 ›</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 긴급신고 -->
+    <section class="emergency-call">
+        <h2 class="section-title">긴급신고</h2>
+        <div class="call-buttons">
+            <button class="police-btn">
+                <span class="btn-number">112</span>
+                <span class="btn-label">경찰관서에 신고하기</span>
+            </button>
+            <button class="fire-btn">
+                <span class="btn-number">119</span>
+                <span class="btn-label">소방관서에 신고하기</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <p>2025 Team 구지트리오</p>
+    </footer>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
