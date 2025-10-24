@@ -69,9 +69,9 @@ public class EmergencyLog {
 
     // Enum 정의
     public enum DangerLevel {
-        HIGH("매우 위급"),
-        MEDIUM("주의 필요"),
-        LOW("경미한 상황");
+        HIGH("상"),
+        MEDIUM("중"),
+        LOW("하");
 
         private final String description;
 
