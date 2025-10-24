@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/emergency")
+@RequestMapping("/emergency")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(origins = "*")
