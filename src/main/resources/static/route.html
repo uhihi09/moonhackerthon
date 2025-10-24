@@ -10,13 +10,6 @@
 <div class="container">
     <!-- 헤더 -->
     <header class="header">
-        <div class="status-bar">
-            <span class="time">9:41</span>
-            <div class="status-icons">
-                <span class="signal">📶</span>
-                <span class="battery">100</span>
-            </div>
-        </div>
         <div class="nav-bar">
             <button class="back-btn" onclick="history.back()">‹</button>
             <h1 class="page-title">최근 1일 간 이동경로</h1>
@@ -25,10 +18,7 @@
     </header>
 
     <!-- 지도 -->
-    <div class="route-map-container">
-        <div id="routeMap" class="route-map"></div>
-        <div class="location-badge danger">최신 위치</div>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4044.688450205542!2d127.98989765196612!3d35.04708999100618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356ef5e484054d4f%3A0x442f41d493d4934c!2zS0Lsnbjsnqzri4jsm4Ag7IKs7LKc!5e0!3m2!1sko!2skr!4v1761306785526!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="route-map-container"></iframe>
 
     <!-- 좌표 리스트 -->
     <div class="coordinate-list">
