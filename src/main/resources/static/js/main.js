@@ -5,15 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 긴급신고 버튼 이벤트
     document.querySelector('.police-btn').addEventListener('click', function() {
-        if (confirm('112에 신고하시겠습니까?')) {
-            window.location.href = 'tel:112';
-        }
+        window.location.href = 'tel:112';
     });
 
     document.querySelector('.fire-btn').addEventListener('click', function() {
-        if (confirm('119에 신고하시겠습니까?')) {
-            window.location.href = 'tel:119';
-        }
+        window.location.href = 'tel:119';
     });
 });
 
