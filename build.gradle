@@ -1,0 +1,119 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.guji3'
+version = '1.0.0-HACKATHON'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // ================================
+    // Spring Boot Core
+    // ================================
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Database (PostgreSQL로 변경!)
+    runtimeOnly 'org.postgresql:postgresql:42.7.1'              // ⭐ PostgreSQL
+    // runtimeOnly 'com.mysql:mysql-connector-j:8.2.0'         // MySQL 제거
+    runtimeOnly 'com.h2database:h2:2.2.224'
+
+    // ================================
+    // Lombok
+    // ================================
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    testCompileOnly 'org.projectlombok:lombok:1.18.36'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+    // ================================
+    // JWT Authentication (JJWT 0.12.x)
+    // ================================
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+    // ================================
+    // AI & 음성 인식
+    // ================================
+    implementation 'com.theokanning.openai-gpt3-java:service:0.18.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // ================================
+    // HTTP Client (SMS/알림 발송)
+    // ================================
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.3'
+    implementation 'org.apache.httpcomponents.core5:httpcore5:5.2.4'
+
+    // ================================
+    // JSON Processing
+    // ================================
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    // ================================
+    // GPS & 위치 서비스
+    // ================================
+    implementation 'com.google.maps:google-maps-services:2.2.0'
+
+    // ================================
+    // SMS 발송
+    // ================================
+    implementation 'commons-codec:commons-codec:1.16.0'
+
+    // ================================
+    // 파일 업로드
+    // ================================
+    implementation 'commons-fileupload:commons-fileupload:1.5'
+    implementation 'commons-io:commons-io:2.15.1'
+
+    // ================================
+    // WebSocket
+    // ================================
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // ================================
+    // 개발 편의성
+    // ================================
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // ================================
+    // Test
+    // ================================
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'com.h2database:h2:2.2.224'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.named('bootJar') {
+    archiveFileName = 'sos-emergency-service.jar'
+}
+
+tasks.register('cleanCache', Delete) {
+    delete "${System.getProperty('user.home')}/.gradle/caches/"
+}
